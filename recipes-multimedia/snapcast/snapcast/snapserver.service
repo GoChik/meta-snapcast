@@ -1,0 +1,11 @@
+[Unit]
+Description=Snapcast server
+Wants=avahi-daemon.service
+After=network.target avahi-daemon.service
+
+[Service]
+ExecStart=/usr/bin/snapserver --logging.sink=system -
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

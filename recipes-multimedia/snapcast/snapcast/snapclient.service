@@ -1,0 +1,11 @@
+[Unit]
+Description=Snapcast client
+Wants=avahi-daemon.service
+After=connman.service sound.target avahi-daemon.service
+
+[Service]
+ExecStart=/usr/bin/snapclient --logsink=system --hostID "%H" 
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
