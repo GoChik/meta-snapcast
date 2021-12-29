@@ -10,7 +10,7 @@ DEPENDS += " \
     libvorbis \
 "
 
-PV = "0.22.0"
+PV = "0.25.0"
 S = "${WORKDIR}/git"
 
 SRC_URI = " \
@@ -40,6 +40,9 @@ do_install_append() {
 
     install -d ${D}${sysconfdir}
     install -m 0644 ${WORKDIR}/snapserver.conf ${D}${sysconfdir}/
+
+    # Remove unneeded icons
+    rm -rf ${D}${datadir}/pixmaps
 }
 
 SYSTEMD_PACKAGES = "${PN}-client ${PN}-server"
