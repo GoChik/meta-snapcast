@@ -20,7 +20,7 @@ LIC_FILES_CHKSUM = "file://../git/LICENSES;md5=9f329b7b34fcd334fb1f8e2eb03d33ff"
 
 inherit autotools systemd pkgconfig
 
-EXTRA_OECONF="--with-alsa --with-avahi --with-ssl=openssl"
+EXTRA_OECONF="--with-alsa --with-avahi --with-ssl=openssl --with-metadata --with-stdout --with-pipe"
 
 do_install_prepend() {
     cp ${S}/scripts/${PN}.conf ${WORKDIR}/build/scripts/
